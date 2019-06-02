@@ -1,3 +1,8 @@
+import { DisplayMode } from "@microsoft/sp-core-library";
+
 export interface IExpandableWikiPartProps {
-  description: string;
+  text : string;
+  numberOfLines : number;
+  displayMode : DisplayMode;
+  fnUpdate: Function;
 }

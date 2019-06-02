@@ -6,13 +6,14 @@ import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
-
+import { PropertyFieldNumber } from '@pnp/spfx-property-controls/lib/PropertyFieldNumber';
 import * as strings from 'ExpandableWikiPartWebPartStrings';
 import ExpandableWikiPart from './components/ExpandableWikiPart';
 import { IExpandableWikiPartProps } from './components/IExpandableWikiPartProps';
 
 export interface IExpandableWikiPartWebPartProps {
-  description: string;
+  text: string;
+  numberOfLines : number;
 }
 
 export default class ExpandableWikiPartWebPart extends BaseClientSideWebPart<IExpandableWikiPartWebPartProps> {
@@ -21,7 +22,12 @@ export default class ExpandableWikiPartWebPart extends BaseClientSideWebPart<IEx
     const element: React.ReactElement<IExpandableWikiPartProps > = React.createElement(
       ExpandableWikiPart,
       {
-        description: this.properties.description
+        text: this.properties.text,
+        displayMode : this.displayMode,
+        numberOfLines : this.properties.numberOfLines,
+        fnUpdate: (text) =>{
+          this.properties.text = text;
+        }
       }
     );
 
@@ -47,8 +53,12 @@ export default class ExpandableWikiPartWebPart extends BaseClientSideWebPart<IEx
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyFieldNumber("numberOfLines", {
+                  key: "numberOfLines",
+                  label: "Number of pre-expanded lines",
+                  value: this.properties.numberOfLines,
+                  maxValue: 10,
+                  minValue: 1
                 })
               ]
             }

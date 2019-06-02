@@ -1,5 +1,9 @@
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
-
+:global{
+  .ql-active .ql-toolbar{
+    position: relative !important;
+  }
+}
 .expandableWikiPart {
   .container {
     margin: 0px auto;

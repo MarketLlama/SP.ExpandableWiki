@@ -19,7 +19,7 @@
     "group": { "default": "Other" },
     "title": { "default": "Expandable Wiki Part" },
     "description": { "default": "Expandable Wiki Part description" },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "TextOverflow",
     "properties": {
       "description": "Expandable Wiki Part"
     }
