@@ -3,7 +3,7 @@
   "solution": {
     "name": "sp-expandable-wiki-client-side-solution",
     "id": "ebd44350-e81b-4ac3-9548-563126d311c9",
-    "version": "1.0.0.10",
+    "version": "1.0.0.15",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false

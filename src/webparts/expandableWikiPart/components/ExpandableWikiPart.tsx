@@ -20,7 +20,7 @@ export default class ExpandableWikiPart extends React.Component<IExpandableWikiP
   constructor(props : IExpandableWikiPartProps) {
     super(props);
     this.state ={
-      displayMode : false,
+      displayMode : true,
       isOpen : false
     };
     this._editModeFix();
@@ -46,7 +46,7 @@ export default class ExpandableWikiPart extends React.Component<IExpandableWikiP
             className={`${styles.textBox} ${(isOpen? styles.isOpen : null)}`}
           >
             <RichText value={this.props.text}
-              isEditMode={(this.props.displayMode == DisplayMode.Edit)}
+              isEditMode={(this.state.displayMode)}
               onChange={(text)=>this._setText(text)}
             />
           </this.Content>

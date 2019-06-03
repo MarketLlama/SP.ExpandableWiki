@@ -1,7 +1,9 @@
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
 :global{
-  .ql-active .ql-toolbar{
-    //position: relative !important;
+  div[class^="expandableWikiPart"], div[class*="expandableWikiPart"] {
+    .ql-active .ql-toolbar{
+      position: absolute !important;
+    }
   }
 }
 %animation {
@@ -31,6 +33,9 @@
     overflow: hidden;
     mask-image: linear-gradient(to top, transparent, #FFF 30%);
     @extend %animation;
+    > div{
+      overflow: hidden;
+    }
   }
   .textBox.isOpen{
     mask-image: none !important;
